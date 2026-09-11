@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#071d2b">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="manifest" href="manifest.json">
+  <title>The Fisher | First-person fishing</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="game-shell">
+    <header class="topbar">
+      <div class="brand"><span class="brand-mark">◒</span><div><strong>THE FISHER</strong><small class="version-tag">BETA 1.0</small></div></div>
+      <div class="wallet"><span class="coin-icon">◆</span><span id="coins">120</span><small>COINS</small></div>
+      <div class="top-actions"><button class="icon-button" id="sound-toggle" title="Toggle sound">◖</button><button class="icon-button" id="codes-button" title="Redeem a code">⌘</button><a class="icon-button download-button" href="The-Fisher-PC.html" download="The-Fisher-PC.html" title="Download PC version" aria-label="Download PC version">↓</a><button class="icon-button" id="settings-button" title="Open settings">⚙</button><button class="avatar" id="admin-button" title="Open admin panel">A</button></div>
+    </header>
+
+    <section class="game-view" aria-label="First-person fishing view">
+      <div class="world-layer">
+      <div class="sky"></div><div class="moon"></div><div class="cloud cloud-one"></div><div class="cloud cloud-two"></div>
+      <div class="water"><div class="water-glow"></div><div class="moon-reflection"></div><div class="wave wave-one"></div><div class="wave wave-two"></div><div class="wave wave-three"></div></div>
+      <div class="horizon-glow"></div><div class="mist mist-one"></div><div class="mist mist-two"></div><div class="scene-particles"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="distant-lights"><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="dock dock-left"></div><div class="dock dock-right"></div>
+      <div class="boat"><span></span><b></b></div>
+      <div class="rod-scene"><div class="rod-tip"></div><div class="rod-guides"><i></i><i></i><i></i><i></i></div><div class="rod-line"></div><div class="rod-handle"></div><div class="reel"><span></span><b></b></div><div class="rod-hand"><i></i><b></b><em></em></div></div>
+      <div class="reticle" id="reticle"><span></span></div>
+      <div class="catch-fx" id="catch-fx" aria-hidden="true"><i></i><i></i><i></i><i></i><b></b></div>
+      <div class="bite-alert" id="bite-alert"><span class="bite-dot"></span><div><strong>Something is tugging...</strong><small>Click REEL IN before it gets away</small></div></div>
+      <div class="scene-label"><span class="live-dot"></span> PIER 07 <em>•</em> 05:42 AM</div>
+      <div class="catch-toast" id="catch-toast"></div>
+      </div>
+
+      <div class="action-dock">
+        <button class="cast-button" id="cast-button"><span class="cast-icon">⌁</span><strong>CAST LINE</strong><small>SPACE</small></button>
+        <div class="action-meta"><span id="action-copy">Find a quiet spot and cast your line.</span><span class="key-hint">[ SPACE ]</span></div>
+      </div>
+      <div class="look-hint" id="look-hint"><span>✥</span> CLICK TO LOOK AROUND <small>MOUSE</small></div>
+    </section>
+
+    <aside class="left-rail">
+      <button class="rail-button active" data-panel="play"><span>◉</span><small>FISH</small></button>
+      <button class="rail-button" data-panel="shop"><span>♧</span><small>SHOP</small></button>
+      <button class="rail-button" data-panel="sell"><span>↗</span><small>SELL</small><b class="rail-count" id="haul-count">0</b></button>
+      <button class="rail-button" data-panel="collection"><span>▦</span><small>COLLECT</small></button>
+      <div class="rail-spacer"></div><button class="rail-button" id="help-button"><span>?</span><small>HOW TO</small></button>
+    </aside>
+
+    <div class="gear-strip"><div class="gear-card"><span class="gear-symbol rod-symbol">╱</span><div><small>EQUIPPED ROD</small><strong id="equipped-rod">Pinewhisper</strong></div><button class="mini-change" data-panel="shop">CHANGE</button></div><div class="gear-card"><span class="gear-symbol bait-symbol">✦</span><div><small>EQUIPPED BAIT</small><strong id="equipped-bait">Worms</strong></div><button class="mini-change" data-panel="shop">CHANGE</button></div><div class="luck-readout"><small>TOTAL LUCK</small><strong id="luck-value">+8%</strong><span>better catches</span></div></div>
+  </main>
+
+  <div class="modal-backdrop" id="modal-backdrop" hidden><section class="panel-modal" id="panel-modal" aria-modal="true"></section></div>
+  <div class="toast" id="toast"></div>
+  <script src="game.js"></script>
+  <script src="settings.js"></script>
+  <script src="gear-visuals.js"></script>
+  <script src="admin-codes.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) navigator.serviceWorker.register('service-worker.js?v=4');
+  </script>
+</body>
+</html>
